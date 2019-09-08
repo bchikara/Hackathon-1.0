@@ -1,0 +1,106 @@
+<app-header></app-header>
+<!-- <product-header></product-header> -->
+<div class="container d2">
+  <div class="row">
+    <div class="col-lg-8 align-self-start">
+      <h6>Showing {{totalQuantity()}} results</h6>
+    </div>
+    <div class="col-lg align-self-end">
+      <div class="input-group">
+        <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="search...">
+        <div class="input-group-append">
+          <button class="btn btn-link btindex" type="button"><i class="fa fa-search"></i></button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<div class="container d3" style="margin-top:0px; padding-top:0px;">
+  <div class="row">
+    <div class="col-lg-2 col-sm align-self-start subd31 sticky-top" style="top:70px; background-color:white;">
+      Filter<i class="fa fa-filter float-right"></i>
+      <div class="card">
+        <div class="card-body filter-custom">
+          <label class="radio">
+            <input type="radio" name="Preference" value="Both" routerLink="/product/all" checked> Both
+          </label>
+          <label class="radio">
+            <input type="radio" name="Preference" value="Veg" routerLink="/product/all" [queryParams]="{type:'veg'}">
+            Veg
+          </label>
+          <label class="radio">
+            <input type="radio" name="Preference" value="Non-Veg" routerLink="/product/all" [queryParams]="{type:'non-veg'}">
+            Non-Veg
+          </label>
+        </div>
+      </div>
+      <br>
+    </div>
+    <hr>
+    <div class="col-lg-10">
+      <div *ngIf="loader ;else load">
+        <div class="loader"></div>
+      </div>
+      <ng-template #load>
+        <div *ngIf="filteredProduct && !filteredProduct.length;else showproducts">
+        <div>
+          <img src="assets/item_no.png"  style=" display:block;
+          margin:auto; height: 200px;" alt="">
+        </div>
+        </div>
+        <ng-template #showproducts>
+          <div class="card-deck">
+            <ng-container *ngFor="let p of filteredProduct; let i=index;">
+              <div *ngIf="p.quantity" class="card col-md-4 col-sm-12 product" style="width: 92vw; margin-bottom: 15px;">
+                <img class="card-img-top px-0" height="200px" src="{{p.image}}" (click)="detailPage(p)">
+                <div class="card-body" (click)="detailPage(p)">
+                  <h5 class="card-title lead">{{p.description}}</h5>
+                  <p class="card-text"> <i class="fa fa-map-marker"></i>&nbsp;{{p.street}},{{p.landmark}} <br>&nbsp;&nbsp;&nbsp;&nbsp;{{p.city}}</p>
+                  <p *ngIf="p.type==='non-veg'" class="badge badge-danger float-right">{{p.type | uppercase}}</p>
+                  <p *ngIf="p.type==='veg'" class="badge badge-success float-right">{{p.type | uppercase}}</p>
+                  <hr>
+                  <p class="card-text">Quantity:- {{p.quantity}}</p>
+                  <p class="card-text">{{p.organisation}}</p>
+                  
+                  <!-- <p class="card-text">{{'Mobile':}}</p> -->
+                </div>
+                <div class="card-footer p-1 text-center" style="opacity: 1;">
+                  <div *ngIf="!getQuantity(p);else updateQuantity">
+                    <button class="btn btn-secondary float-right btn-sm" type="button" (click)="addToCart(p)" style="color: white;margin-right: 10px">Add
+                      to cart</button>
+                    <button (click)="checkout(p)" class="btn btn-primary float-right btn-sm mx-1">Check Out</button>
+                  </div>
+                  <ng-template #updateQuantity>
+                    <div class="row no-gutters text-center">
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-sm" (click)="removeFromCart(p)" >-</button>
+                      </div>
+                        <div class="col text-center" >{{ getQuantity(p) }} in cart</div>
+                    
+                      <div class="col-2">
+                        <button class="btn btn-secondary btn-sm" (click)="addToCart(p)" [disabled]="getQuantity(p) >= p.quantity">+</button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+              <div *ngIf="(i+1)%3===0" class="w-100"> </div>
+            </ng-container>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<br>
+<app-footer></app-footer>
+
+<!-- progress-bar -->
+<ng-progress
+    [positionUsing]="'marginLeft'"
+    [direction]="'leftToRightIncreased'"
+    [color]="'blue'"
+    [trickleSpeed]="500" 
+    [thick]="true" 
+    [ease]="'easeInSine'"
+></ng-progress>

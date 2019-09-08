@@ -1,0 +1,177 @@
+<app-header></app-header>
+<div class="container my-5">
+  <div class="row my-4">
+      <div class="col-lg-12">
+          <div class="text-center">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif; color:#0B69D7; ">
+                  Admin Panel
+              </p>
+          </div>
+      </div>
+  </div>
+  <!-- heading -->
+  <!-- existing module cards -->
+  <div class="row my-4">
+      <div class="col-lg-12">
+          <div class="text-left">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 1.8rem;">
+                  Existing Modules:
+              </p>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-4" *ngFor="let mod of module">
+          <div class="card">
+              <img class="card-img-top mx-auto rounded-circle py-3" style="width:100px; height:150px;" src="{{mod.image}}"
+                  alt="Card image cap">
+              <div class="card-body text-center text-muted" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                  {{mod.name}} </div>
+          </div><br>
+      </div>
+      
+      <div class="col-lg-4">
+          <div class="card" routerLink="/admin/modulecreator">
+              <img class="card-img-top mx-auto rounded-circle py-3" style="width:100px; height:150px;" src="https://i.imgur.com/MZVHNFF.jpg"
+                  alt="Card image cap">
+              <div class="card-body text-center text-muted" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                  Add another module </div>
+          </div>
+      </div>
+
+  </div>
+  <!-- end of existing module cards -->
+
+  <!-- request for new modules -->
+  <div class="row my-4 pt-5">
+      <div class="col-lg-12">
+          <div class="text-left">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 1.8rem;">
+                  Request for new modules:
+              </p>
+          </div>
+      </div>
+  </div>
+  <!-- cards for requestfornewmodules -->
+  <div class="row my-4">
+      <div class="col-lg-12 card">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div>
+                      <p class="text-muted text-left mt-3 py-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder">
+                          Request for addition of Books module
+                      </p>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="py-3 smallscreenali">
+                      <img src="https://i.imgur.com/zMqp0UE.png" alt="" class="rounded-circle" style="width:25%; height:25;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row my-4">
+      <div class="col-lg-12 card">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div>
+                      <p class="text-muted text-left mt-3 py-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder">
+                          Request for addition of E-Waste module
+                      </p>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="py-3 smallscreenali">
+                      <img src="https://i.imgur.com/MZVHNFF.jpg" alt="" class="rounded-circle" style="width:25%; height:25;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end of request for new module -->
+
+  <!-- request for ngo verification -->
+  <div class="row my-4 pt-5">
+      <div class="col-lg-12">
+          <div class="text-left">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 1.8rem;">
+                  Request for NGO verification:
+              </p>
+          </div>
+      </div>
+  </div>
+  <!-- cards for requestfornewmodules -->
+  <div class="row my-4" *ngFor="let n of ngo">
+      <div class="col-lg-12 card"  [routerLink]="['/admin/ngo/',n.id]">
+          <div class="row" >
+              <div class="col-lg-9" >
+                  <div>
+                      <p class="text-muted text-left mt-3 py-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder">
+                          Username: {{n.username}}
+                          <br>
+                          Email: {{n.email}} <br>
+                          Phone:  {{n.phone_no}}
+                      </p>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="py-3 smallscreenali">
+                      <img src="https://i.imgur.com/R8MYVhI.jpg" alt="" class="rounded-circle" style="width:25%; height:25;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end of request for ngo verification -->
+
+  <!-- request for social feed -->
+  <div class="row my-4 pt-5">
+      <div class="col-lg-12">
+          <div class="text-left">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 1.8rem;">
+                  Request for Social Feed:
+              </p>
+          </div>
+      </div>
+  </div>
+  <!-- cards for requestfornewmodules -->
+  <div class="row my-4">
+      <div class="col-lg-12 card">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div>
+                      <p class="text-muted text-left mt-3 py-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder">
+                          Organization of blood donation camp in Dehradun
+                      </p>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="py-3 smallscreenali">
+                      <img src="https://i.imgur.com/ALiGvPv.jpg" alt="" class="rounded-circle" style="width:25%; height:25;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row my-4">
+      <div class="col-lg-12 card">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div>
+                      <p class="text-muted text-left mt-3 py-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder">
+                          Fundraiser event for the people who live in slum 
+                      </p>
+                  </div>
+              </div>
+              <div class="col-lg-3">
+                  <div class="py-3 smallscreenali">
+                      <img src="https://i.imgur.com/5HSp7KP.jpg" alt="" class="rounded-circle" style="width:25%; height:25;">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end of request for social feed -->
+</div>
+<app-footer></app-footer>

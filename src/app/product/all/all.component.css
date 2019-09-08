@@ -1,0 +1,80 @@
+.card-footer{
+    padding: 0%;
+}
+.d1{
+    margin-top: 5%;
+}
+.d2{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.d3{
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+.subd31{
+    border-right: 0.4px solid rgba(0, 0, 0, 0.2);
+}
+.pagination {
+   justify-content: center;
+}
+
+.card{
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */   
+}
+
+@media screen and (min-width: 992px) {
+    .filter-custom {
+        text-align: left;
+    }
+    .radio{
+        display: block !important ;
+    }
+}
+
+@media screen and (max-width: 600px){
+.filter-custom{
+    text-align: center;
+}
+.radio{
+    display: inline !important ; 
+}
+}
+
+.product{
+    padding-right: 0px !important ;
+    padding-left:0px !important ;
+}
+
+.loader {
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+/* for overriding the default btn z-index */
+.btindex{
+    z-index: 0;
+}

@@ -1,0 +1,76 @@
+<ng-progress 
+    [positionUsing]="'marginLeft'" 
+    [direction]="'leftToRightIncreased'" 
+    [color]="'blue'" 
+    [trickleSpeed]="500"
+    [thick]="true" 
+    [ease]="'easeInSine'"
+></ng-progress>
+<app-header></app-header>
+<div class="container p-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" *ngIf="cart$;else show" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">My Cart {{'('+count+')'}} </h5>
+      <ng-template #show>
+        <h5 class="card-title">My Cart (0) </h5>
+      </ng-template>
+      <hr>
+      <!-- With Items Loop Here -->
+      <div *ngIf="cart$ && cart$.items;else shows">
+        <div *ngFor="let product_id of product_ids">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="img-thumbnail mx-auto thumbnail" [style.backgroundImage]="'url('+ cart$.items[product_id].product.image +')'"></div>
+            </div>
+            <div class="col-md-6" *ngIf="cart$.items">
+              <div class="aligndiv">
+                <p class="lead mt-4" style="font-family: 'Montserrat', sans-serif; font-weight:700;">
+                  {{cart$.items[product_id].product.description}}
+                </p>
+                <p class="lead">
+                  <span style="color: green; font-size: 1rem; font-family: 'Montserrat', sans-serif; font-weight:700;">In Stock</span>
+                  &nbsp;
+                  <button class="btn btn-sm btn-danger" (click)="delete(cart$.items[product_id].product)">Remove</button>
+                </p>
+              </div>
+            </div>
+            <div *ngIf="cart$.items" class="col-md-4 lead mt-4" style="text-align:center">
+              <span class="px-1" style="cursor: pointer;" *ngIf="cart$.items">
+                <button class="fa fa-lg fa-plus-circle fa-1x custom-style" [disabled]="cart$.items[product_id].quantity >= cart$.items[product_id].product.quantity"
+                  (click)="addToCart(cart$.items[product_id].product)" ></button>
+              </span>
+              <span style="font-family: 'Montserrat', sans-serif; font-weight:700;">
+                {{cart$.items[product_id].quantity}}
+                </span>
+              <span class="px-1" style="cursor: pointer;" *ngIf="cart$.items">
+                <button class="fa fa-lg fa-minus-circle fa-1x custom-style" (click)="removeFromCart(cart$.items[product_id].product)"></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #shows>
+        <p class="card-text lead" style="text-align: center;">
+          <img src="assets/empty-cart_ee6141.png" width="200px"> <br><br>
+          <b>Your Cart is Empty</b>
+        </p>
+      </ng-template>
+      <hr>
+      <!-- Loop Ends here -->
+
+      <div class="card-footer border-top-0" style="background-color:white;">
+        <div class="btn-group-sm btn-group float-right" *ngIf="cart$ && cart$.items;else showss">
+          <button class="btn btn-secondary" routerLink="/product/all">Continue Shopping</button> &nbsp;
+          <button class="btn btn-success" routerLink="/check-out">Place Order</button>
+        </div>
+        <ng-template #showss>
+          <div class="btn-group-sm float-right mt-1">
+            <button class="btn btn-secondary" routerLink="/product/all">Continue Shopping</button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

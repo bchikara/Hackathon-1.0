@@ -1,0 +1,54 @@
+<ng-progress [positionUsing]="'marginLeft'" [direction]="'leftToRightIncreased'" [color]="'blue'" [trickleSpeed]="500"
+  [thick]="true" [ease]="'easeInSine'"></ng-progress>
+<app-header></app-header>
+<div class="container-fluid jumbotron m-0 p-0">
+  <div class="container jumbotron">
+    <b class="text-left display-4 py-4" style="font-family: 'Assistant', sans-serif; font-weight:bolder;">Manage
+      <span style="color: #930202;">Donations</span></b>
+      <p class="text-left px-1 text-muted" style="font-family: 'Montserrat', sans-serif; font-weight:700;">
+        Welcome to your all in one place for managing your donations.</p>
+    <a style="bottom:25px;right:25px;position:fixed; color:white; z-index: 1 " (click)="donate()" class="btn btn-success"><i
+        class="fa fa-plus " title="Donate"></i> </a>
+  </div>
+</div>
+<div *ngIf="loader; else load">
+  <div class="loader"></div>
+</div>
+<ng-template #load>
+  <div *ngIf="products$ && products$.length;else noitem" class="container">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Category</th>
+            <th class="text-center">Modify/Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products$; let i=index">
+            <td class="text-center">
+              {{p[i].description}}
+            </td>
+            <td class="text-center">
+              {{p[i].type | uppercase}}
+            </td>
+            <td *ngIf="p[i].quantity>0;" class="text-center">
+              <a [routerLink]="['/donor/editProduct/',p[i].listing_id]">Edit</a>
+            </td>
+            <td *ngIf="p[i].quantity===0" class="text-center">
+              <p style="color:green">Booked/<span style="color:red;">Delete</span></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ng-template #noitem>
+    <div>
+      <img src="assets/item_no.png" style=" display:block;
+      margin:auto; height: 200px;" alt="">
+    </div>
+  </ng-template>
+</ng-template>
+<app-footer></app-footer>

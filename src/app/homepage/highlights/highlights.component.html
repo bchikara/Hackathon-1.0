@@ -1,0 +1,123 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="text-center">
+                <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 3.2rem; ">What is
+                    <span style="color: #0B69D7;"> Helping
+                        Hands?
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- heading -->
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="jumbotron jumbotron-fluid bg-white">
+                <div class="container">
+                    <img class="mx-auto d-block" style="width:70%;" src="https://i.imgur.com/y7QZyxx.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="jumbotron bg-white">
+                <div class="mt-5">
+                    <div class="d-flex">
+                        <img class="smallscreenalignment" src="https://i.imgur.com/iMn1Xwe.png" alt="1" style="width: 15%; height: 15%;">
+                        <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                            Helping Hands is a module based platform for creating platforms which that provides a
+                            helping hand
+                            for any donor-beneficiaries system.
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <img class="smallscreenalignment" src="https://i.imgur.com/dyQQTvR.png" alt="1" style="width: 15%; height: 15%;">
+                        <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                            We aim to bridge the gap between donors and beneficiaries, so that they can focus on
+                            important things and contribute together for a better, sustainable and healthy India.
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container my-5">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <div class="text-center">
+                <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 3.2rem; ">Our
+                    Current
+                    <span style="color: #0B69D7;"> Modules
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- heading -->
+    </div>
+    <!-- module cards -->
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let module of modules">
+            <div class="card" (click)="feed(module)">
+                <img class="card-img-top mx-auto rounded-circle py-3" style="width:25%; height:25%;" src="{{module.image}}"
+                    alt="Card image cap">
+                <div class="card-body text-center text-muted" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                    {{module.name | titlecase}} </div>
+            </div><br>
+        </div>
+
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row my-4">
+        <div class="col-lg-12">
+            <div class="text-center">
+                <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 3.2rem; ">Integrated
+                    <span style="color: #0B69D7;"> Social Feed </span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!-- heading -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="jumbotron bg-white">
+                <div class="mt-5">
+                    <div class="d-flex">
+                        <img class="smallscreenalignment" src="https://i.imgur.com/iMn1Xwe.png" alt="1" style="width: 15%; height: 15%;">
+                        <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                            Our integrated social feed is a mean to publicize a social cause, create awareness
+                            about a social event.
+                        </p>
+                    </div>
+                    <div class="d-flex">
+                        <img class="smallscreenalignment" src="https://i.imgur.com/dyQQTvR.png" alt="1" style="width: 15%; height: 15%;">
+                        <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                            It can also be used as a fundraiser for the needy.
+                        </p>
+                    </div>
+                    <div class="pl-4 py-4 smallscreenbtnalign">
+                        <button type="button" class="btn btn-primary" (click)="social()"> Click here </button>
+                    </div> 
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="jumbotron jumbotron-fluid bg-white">
+                <div class="container">
+                    <div class="">
+                        <img class="mx-auto" style="width:120%;" src="https://i.imgur.com/deXcq4e.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

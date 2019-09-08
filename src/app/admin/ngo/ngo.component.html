@@ -1,0 +1,148 @@
+<app-header></app-header>
+<div class="container my-5">
+  <div class="row my-4">
+      <div class="col-lg-12">
+          <div class="text-center">
+              <p class="display-4" style="font-family: 'Staatliches', sans-serif;">
+                  Admin Panel: <span style="color:#0B69D7;">NGO Verification </span>
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- heading -->
+<div class="container my-5">
+  <div class="row" *ngIf="title">
+      <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+      <div class="col-lg-12">
+          <div class="card">
+              <!-- name -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Name:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="first_name" [(ngModel)]="title.first_name" type="text" placeholder="First Name">
+                      </div>
+                      <div class="col-lg-6">
+                          <input class="form-control" name="last_name" [(ngModel)]="title.last_name" type="text" placeholder="Last Name">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of name -->
+
+              <!-- social links -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Social Links:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-4">
+                          <input class="form-control" name="sociallink1" [(ngModel)]="title.sociallink1" type="text" placeholder="Social Link 1">
+                      </div>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="sociallink2" [(ngModel)]="title.sociallink2" type="text" placeholder="Social Link 2">
+                      </div>
+                      <div class="col-lg-4">
+                          <input class="form-control" name="sociallink3" [(ngModel)]="title.sociallink3" type="text" placeholder="Social Link 3">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of social links -->
+
+              <!-- registered name -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Registered Name:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="ngo_name" [(ngModel)]="title.ngo_name" type="text" placeholder="Registered Name">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of registered name -->
+
+              <!-- phone -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2"  style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Contact:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="phone_no" [(ngModel)]="title.phone_no" type="text" placeholder="Contact Number">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of phone -->
+
+              <!-- email -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Email:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="email" [(ngModel)]="title.email" type="email" placeholder="Email">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of email -->
+
+              <!-- module -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Module:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="module" [(ngModel)]="title.module" type="text" placeholder="Module">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of module -->
+
+              <!-- past contributions -->
+              <div class="mx-5 my-3">
+                  <div class="row">
+                      <div class="col-lg-12 mb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+                          Past Contributions:
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <input class="form-control" name="past_record" [(ngModel)]="title.past_record" type="text" placeholder="Contributions">
+                      </div>
+                  </div>
+              </div>
+              <!-- end of past contributions -->
+              <!-- buttons -->
+              <div class="mx-4 px-2 mt-3 mb-4">
+                  <div class="col-lg-12">
+                      <div class="text-left">
+                          <button type="button" (click)="accept()" class="btn btn-primary" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">Approve</button>
+                          <button type="button" (click)="reject()" class="btn btn-danger float-right" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">Decline</button>
+                      </div>
+                  </div>
+              </div>
+              <!-- end of buttons -->
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

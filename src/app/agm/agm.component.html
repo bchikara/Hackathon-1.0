@@ -1,0 +1,38 @@
+<app-header></app-header>
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  >
+
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m['lat']"
+      [longitude]="m['lng']"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+    <agm-info-window>
+      <strong>{{m['description']}}</strong>
+    </agm-info-window>
+    
+  </agm-marker>
+
+  <agm-marker 
+  *ngFor="let m of markers2; let i = index"
+  (markerClick)="clickedMarker(m.label, i)"
+  [latitude]="m['lat']"
+  [longitude]="m['lng']"
+  (dragEnd)="markerDragEnd(m, $event)">
+  
+<agm-info-window>
+  <strong>{{m['name']}}</strong>
+</agm-info-window>
+
+</agm-marker>
+ 
+
+</agm-map>
+<app-footer></app-footer>

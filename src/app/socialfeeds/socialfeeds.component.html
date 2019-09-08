@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="jumbotron bg-white">
+                <h1 class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 5.5rem; color: #0B69D7;">Social
+                    Feed</h1> 
+                    <button type="button" routerLink='/social/addfeeds' class="btn btn-primary
+                     btn-sm" style="font-family: 'Montserrat', sans-serif; font-weight:600;">Add Post</button>
+
+
+
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card my-5" *ngFor="let f of feeds">
+                <div class="card-body">
+                    <h4 class="card-title pb-2" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;"><img
+                            class="rounded-circle" src="https://i.imgur.com/Y05TCxQ.jpg" alt="profile_pic" style="width: 50px;">
+                        {{f.name}}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">{{f.time_stamp | date}}</h6>
+                    <p class="card-text">
+                        {{f.description}} </p>
+                    <!-- <br> -->
+                    Venue: Dehradun, Uttrakhand. <br> <br>
+                    <button type="button" routerLink='/map' class="btn btn-outline-light btn-sm" style="color: #0B69D7; font-family: 'Montserrat', sans-serif; font-weight:600;">
+                        <i class="fas fa-map-marker-alt"></i> See on Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

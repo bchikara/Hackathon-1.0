@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="my-5">
+  <div class="card border-0">
+      <article class="card-body mx-auto" style="max-width: 400px;">
+          <h4 class="card-title mt-3 text-center" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">Verification
+              Form</h4>
+
+          <hr class="my-4">
+
+          <form (ngSubmit)="onSave(f.value)" #f="ngForm">
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                  </div>
+                  <input name="ngo_name" class="form-control" placeholder="Registered Name" ngModel required type="text">
+              </div> <!-- form-group// -->
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                  </div>
+                  <input name="sociallink1" class="form-control" placeholder="Social Links" ngModel required type="text">
+              </div>
+              <div class="form-group input-group">
+                  <input name="sociallink2" class="form-control" placeholder="Social Links" ngModel  type="text">
+              </div>
+              <div class="form-group input-group">
+                  <input name="sociallink3" class="form-control" placeholder="Social Links" ngModel type="text">
+              </div> <!-- form-group// -->
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"> <i class="fas fa-file-image"></i> </span>
+                  </div>
+                  <input name="image" class="form-control" placeholder="Certification (FCRA, NOC)" ngModel required type="text">
+              </div>
+              <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-hand-holding"></i></span>
+                  </div>
+                  <input name="past_record" class="form-control" placeholder="Past Contributions' Link" ngModel required type="text">
+              </div> <!-- form-group end.// -->
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block"> Submit </button>
+              </div> <!-- form-group// -->
+          </form>
+      </article>
+  </div>
+  <!-- card.// -->
+
+</div>
+<app-footer></app-footer>

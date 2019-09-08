@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* .btn{
+    
+    background-color: #21D4FD;
+    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    color: white;
+} */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+overflow-x:hidden; }

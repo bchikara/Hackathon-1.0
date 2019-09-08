@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px) {
+    .smallscreenalignment {
+        margin-top: 0.6rem;
+    }
+    .smallscreenbtnalign{
+        text-align: center;
+    }
+    .img{
+        display: none; 
+    }
+}

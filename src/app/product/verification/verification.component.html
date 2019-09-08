@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row py-4">
+    <div class="col-lg-12">
+      <div class="text-center">
+        <p class="display-4" style="font-family: 'Staatliches', sans-serif; font-size: 3.2rem; ">My
+          <span style="color: #0B69D7;"> Dashboard
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- heading -->
+
+<div class="row py-4" *ngIf="auth.currentUser().status==='pending'">
+  <div class="col-lg-12">
+    <div class="card bg-danger">
+      <p class="text-center" style="font-family: 'Staatliches', sans-serif; font-size: 2.2rem; color:white;">
+        Status: Pending
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row py-4" *ngIf="auth.currentUser().status==='rejected'">
+  <div class="col-lg-12">
+    <div class="card bg-danger">
+      <p class="text-center" style="font-family: 'Staatliches', sans-serif; font-size: 2.2rem; color:white;">
+        Status: Rejected
+      </p>
+    </div>
+  </div>
+</div>
+<!-- pending -->
+
+<div class="row py-4" *ngIf="auth.currentUser().status==='approved'">
+  <div class="col-lg-12">
+    <div class="card bg-primary">
+      <p class="text-center" style="font-family: 'Staatliches', sans-serif; font-size: 2.2rem; color:white;">
+        Status: Verified
+      </p>
+    </div>
+  </div>
+</div>
+<!-- verified -->
+
+<div class="container">
+  <div class="row pt-2">
+    <div class="col-lg-6">
+      <div class="card border-0 mt-5 pt-5">
+        <p class="display-4 ml-4 text-left verifytextcenter" style="font-family: 'Staatliches', sans-serif; font-size: 3rem;">
+          Why we need <span style="color: #0B69D7;"> verification?</span>
+        </p>
+        <div class="d-flex">
+          <img class="smallscreenalignment" src="https://i.imgur.com/iMn1Xwe.png" alt="1" style="width: 15%; height: 15%;">
+          <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+            With our platform we want to ensure that the donations are going to the ones who are really
+            in need.
+          </p>
+        </div>
+        <div class="d-flex">
+          <img class="smallscreenalignment" src="https://i.imgur.com/dyQQTvR.png" alt="1" style="width: 15%; height: 15%;">
+          <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+            We want to be a spam free community to maximize the donations and build trustworthiness in
+            the community.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="jumbotron jumbotron-fluid bg-white">
+        <div class="container">
+          <img class="mx-auto d-block" style="width:80%;" src="https://i.imgur.com/E4NIIR9.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- why we need verification? -->
+
+<div class="container">
+  <div class="row pt-0 mt-0">
+    <div class="col-lg-6">
+      <div class="jumbotron jumbotron-fluid bg-white my-0 py-0">
+        <div class="container img">
+          <img class="mx-auto d-block px-0 mx-0 py-2" style="width:80%;" src="https://i.imgur.com/q6zrjnK.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card border-0 my-2 py-3">
+        <p class="display-4 ml-4 text-left verifytextcenter" style="font-family: 'Staatliches', sans-serif; font-size: 3rem;">
+          Steps to get <span style="color: #0B69D7;"> verified</span>
+        </p>
+        <div class="d-flex">
+          <img class="smallscreenalignment" src="https://i.imgur.com/iMn1Xwe.png" alt="1" style="width: 15%; height: 15%;">
+          <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+            Fill out your organization's registered name along with your social links.
+          </p>
+        </div>
+        <div class="d-flex">
+          <img class="smallscreenalignment" src="https://i.imgur.com/dyQQTvR.png" alt="1" style="width: 15%; height: 15%;">
+          <p class="text-muted text-justify mt-3" style="font-family: 'Montserrat', sans-serif; font-weight:bolder;">
+            Upload your documents which are verified by the central or state government.
+          </p>
+        </div>
+        <div class="pl-4 py-4 smallscreenbtnalign text-right" *ngIf="auth.currentUser().status!=='rejected' && auth.currentUser().status!=='approved'">
+          <button type="button" class="btn btn-primary" (click)="ngo()"> Get Verified </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
